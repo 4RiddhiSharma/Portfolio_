@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Tasks</title>
+    <style>
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 boxes in a row */
+            gap: 20px; /* Space between the boxes */
+            padding: 20px 0;
+            list-style-type: none; /* Remove bullet points */
+            margin: 0;
+        }
+
+        .project-box {
+            background-color: #f0f4f8; /* Light background color for the box */
+            border: 1px solid #ddd; /* Border around the box */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+        }
+
+        .project-box:hover {
+            transform: scale(1.05); /* Zoom-in effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        }
+
+        .project-box h3 {
+            color: #007BFF; /* Heading color */
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        body {
+            max-width: 60vw;
+            margin: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem; /* Adjust size as needed */
+        }
+
+        :root {
+            --background-color: #fff;
+            --text-color: #1d1d1d;
+        }
+
+        
+        footer {
+            text-align: center;
+            padding: 80px 0 20px 0
+        }
+        section.projects {
+            padding-top: 80px
+        }
+
+        section.projects li {
+            opacity: .64;
+            transition: opacity .2s ease-in-out
+        }
+
+        section.projects li:hover {
+            opacity: 1
+        }
+
+        section.projects p {
+            color: var(--text-color);
+            margin-top: 4px
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #000000;
+                --text-color: #f8f9fa;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Centered Heading -->
+    <h1 class="text-center text-4xl font-bold">Python Actions</h1>
+    
+    <!-- Projects Section -->
+    <section class="projects">
+        <ul class="project-list">
+            <li class="project-box" onclick="goToGoogleSearch()">
+                <h3>Go to Google Search</h3>
+            </li>
+            <li class="project-box" onclick="sendBulkEmail()">
+                <h3>Send Bulk Email</h3>
+            </li>
+            <li class="project-box" onclick="geoCoordinates()">
+                <h3>Geo Coordinates</h3>
+            </li>
+            <li class="project-box" onclick="pythonSMS()">
+                <h3>SMS through Python</h3>
+            </li>
+            <li class="project-box" onclick="whatsappmsg()">
+                <h3>WhatsApp Message</h3>
+            </li>
+            <li class="project-box" onclick="text_to_speech()">
+                    <h3>Text To Speech</h3>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+        function goToGoogleSearch() {
+            window.location.href = "google_search.html";
+        }
+        function sendBulkEmail() {
+            window.location.href = "send_bulk_email.html";
+        }
+        function geoCoordinates() {
+            window.location.href = "geo_coordinates.html";
+        }
+        function pythonSMS() {
+            window.location.href = "python_sms.html";
+        }
+        function whatsappmsg(){
+            window.location.href = "whatsapp.html";
+        }
+        function text_to_speech(){
+            window.location.href = "text_to_speech.html";
+        }
+    </script>
+
+    <footer>
+        <p class="credits"><small>Designed & built by Riddhi Sharma</small></p>
+    </footer>
+</body>
+</html>
+

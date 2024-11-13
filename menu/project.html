@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/fav/dark/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/fav/dark/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/fav/dark/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/fav/dark/site.webmanifest">
+    <style>
+        @font-face {
+            font-family: Lato;
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: local("Lato Regular"), local("Lato-Regular"), url(//themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format("woff")
+        }
+
+        :root {
+            font-family: Lato, sans-serif
+        }
+
+        ::selection {
+            color: var(--background-color);
+            background-color: var(--text-color)
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color)
+        }
+
+        body {
+            max-width: 60vw;
+            margin: auto
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .nav-home {
+            position: absolute;
+            top: 20px;
+            text-decoration: none
+        }
+
+        .logo {
+            /* filter: invert(1) */
+            width: 250px;
+            height: 140px;
+        }
+
+        nav.main-nav {
+            z-index: 100;
+            height: 60px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        nav.main-nav a {
+            text-decoration: none;
+            top: 8px;
+            padding: 8px 12px;
+            color: var(--text-color);
+            line-height: 1.35;
+            border-radius: 3px;
+            position: relative
+        }
+
+        .flex-1 {
+            flex: 1
+        }
+
+        a {
+            color: var(--text-color);
+            transition: opacity .2s ease-in-out;
+            opacity: .84
+        }
+
+        a:hover {
+            opacity: 1
+        }
+
+        section h2 a {
+            padding-right: 6px;
+            opacity: .5
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0 0
+        }
+
+        .text-container {
+            padding-top: 50px;
+            padding-bottom: 20px
+        }
+
+        .author-container .role,
+        .text-subtitle {
+            opacity: .64;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            letter-spacing: -.51px;
+            margin-top: 4px
+        }
+
+        .author-container .author {
+            font-size: 4rem;
+            color: var(--text-color);
+            letter-spacing: -4.48px;
+            margin: 0;
+            line-height: .8;
+            padding-bottom: 30px
+        }
+
+        .image-container .image-text {
+            opacity: .86;
+            font-size: .9rem;
+            color: #fff;
+            margin-top: -80px;
+            padding: 20px;
+            line-height: 1.7
+        }
+
+        .hero-image {
+            max-width: 100%;
+            margin: auto;
+            transition: filter .5s ease-in-out
+        }
+
+        .hero-image img {
+            width: 290px;
+            aspect-ratio: 1/1
+        }
+
+        .hero-image:hover {
+            filter: none
+        }
+
+        main {
+            padding-top: 100px;
+            margin: auto
+        }
+
+        section.projects {
+            padding-top: 100px
+        }
+
+        section.projects li {
+            opacity: .64;
+            transition: opacity .2s ease-in-out
+        }
+
+        section.projects li:hover {
+            opacity: 1
+        }
+
+        section.projects p {
+            color: var(--text-color);
+            margin-top: 4px
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 0 20px 0
+        }
+
+        footer nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center
+        }
+
+        footer .nav-link {
+            padding: 10px
+        }
+
+        .credits {
+            display: flex;
+            flex-direction: column;
+            opacity: .84;
+            transition: opacity .2s ease-in-out;
+            height: 130px;
+            align-items: center;
+            justify-content: center
+        }
+
+        .credits:hover {
+            opacity: 1
+        }
+
+        .mobile-nav {
+            display: none;
+            margin: auto
+        }
+
+        .mobile-nav img {
+            margin: 20px
+        }
+
+        .overlay-button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            padding: 20px;
+            z-index: 5;
+            cursor: pointer;
+            user-select: none;
+            text-align: justify
+        }
+
+        .overlay-button span,
+        .overlay-button span:after,
+        .overlay-button span:before {
+            height: 1px;
+            width: 30px;
+            background-color: var(--text-color);
+            position: relative;
+            display: block;
+            transition: all .2s ease-in-out
+        }
+
+        .overlay-button span:before {
+            top: -10px;
+            visibility: visible
+        }
+
+        .overlay-button span:after {
+            top: 10px
+        }
+
+        .overlay-button span:after,
+        .overlay-button span:before {
+            content: ""
+        }
+
+        input[type=checkbox] {
+            display: none
+        }
+
+        input[type=checkbox]:checked~.overlay {
+            visibility: visible
+        }
+
+        input[type=checkbox]:checked~.overlay-button span {
+            transform: rotate(-90deg) translateX(-10px);
+            width: 50%;
+            opacity: 1
+        }
+
+        .overlay {
+            height: 100vh;
+            width: 100vw;
+            background: var(--background-color);
+            z-index: 2;
+            visibility: hidden;
+            position: fixed;
+            overflow: hidden;
+            top: 0
+        }
+
+        .overlay.active {
+            visibility: visible
+        }
+
+        .overlay nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            height: 100vh;
+            padding-left: 0
+        }
+
+        .overlay nav a {
+            padding: 1em;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5em
+        }
+
+        @media only screen and (max-width:900px) {
+            body {
+                max-width: 100vw
+            }
+            nav.main-nav {
+                display: none
+            }
+            .mobile-nav {
+                display: block
+            }
+            footer nav {
+                flex-direction: column;
+                font-size: 1.2em
+            }
+            p {
+                line-height: 1.5rem
+            }
+            ul {
+                padding: 0
+            }
+            .container {
+                display: block
+            }
+            .image-container {
+                display: none
+            }
+        }
+
+        @media only screen and (max-width:960px) {
+            footer,
+            main {
+                max-width: 100vw;
+                padding: 40px
+            }
+        }
+
+        :root {
+            --background-color: #fff;
+            --text-color: #1d1d1d
+        }
+
+        /* .logo {
+            filter: invert(0)
+        } */
+
+        @media (prefers-color-scheme:dark) {
+            :root {
+                --background-color: #000000;
+                --text-color: #f8f9fa
+            }
+            /* .logo {
+                filter: invert(1)
+            } */
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <nav class="main-nav">
+    <a class="nav-home" href="/">
+    <img class="logo" src="assets\auto.png" alt="ridz-logo" width="185" height="42"> </a>
+    <span class="flex-1"></span> 
+    <a class="nav-link" href="index.html">Home</a> 
+    <a class="nav-link" href="about.html">About</a>
+    <a class="nav-link" href="project.html">Projects</a></nav>
+
+    <nav class="mobile-nav">
+    <a class="nav-link" href="/">
+    <img class="logo" src="assets\auto.png" alt="ridz-logo" width="185" height="42"></a>
+    <input type="checkbox" id="overlay-input"> <label for="overlay-input" class="overlay-button">
+    <span></span></label>
+
+        <div
+            class="overlay">
+            <nav><a class="nav-link" href="index.html">Home</a> 
+            <a class="nav-link" href="about.html">About</a> 
+            <a class="nav-link" href="project.html">Projects</a>
+            <a rel="me" target="__blank" href="https://github.com/4RiddhiSharma" title="GitHub">GitHub</a>
+            <a rel="me" target="__blank" href="https://medium.com/@riddhimos2001" title="Blog">Blog</a>
+            <a rel="me" target="__blank" href="https://www.linkedin.com/in/riddhi-sharma-286459317/" title="LinkedIn">LinkedIn</a>
+            </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="text-container">
+                <div class="author-container">
+                    <h1 class="author">Riddhi Sharma</h1>
+                    <div class="role">Riddhi is an engineer and thought leader.</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="hero-image">
+                    <picture>
+                        <source type="image/png" srcset="assets\myprof2.png">
+                        <img src="assets\myprof2.png" width="290" height="290" alt="ridz-profile"></picture>
+                </div>
+            </div>
+        </div>
+        <section class="projects">
+            <h2>Featured Projects and Content</h2>
+            <ul>
+                <li>
+                    <a href="python.html">
+                        <h3>Python</h3>
+                    </a>
+                    </a>
+                    <p>I implemented a complete runner.</p>
+                </li>
+                <li>
+                    <a href="awstasks/index.html">
+                        <h3>AWS Services</h3>
+                    </a>
+                    </a>
+                    <p>This is the world (working proof of concept) can be controlled by a You. It is a proof of concept, but it is also a real world example of how a machine can be
+                        controlled.</p>
+                </li>
+                <li>
+                    <a href="linux.html">
+                        <h3>Linux Terminal</h3>
+                    </a>
+                    </a>
+                    <p> Web App CLI.</p>
+                </li>
+                <li>
+                    <a href="docker.html">
+                        <h3>Docker Automation</h3>
+                    </a>
+                    </a>
+                    <p>A sketch that went viral providing a high level explanation about what happens when you 
+                        launch docker and manage containers.</p>
+                </li>
+                <li>
+                    <a href="kube.html">
+                        <h3>Kubernetes</h3>
+                    </a>
+                    </a>
+                    <p>simple explanation how kubernetes works in AWS</p>
+                </li>
+                <li>
+                    <a href="ml.html">
+                        <h3>ML</h3>
+                    </a>
+                    </a>
+                    <p>Sharing my journey into building and training and running models in docker.</p>
+                </li>
+                <li>
+                    <a href="full_stack.html">
+                        <h3>Full Stack</h3>
+                    </a>
+                    </a>
+                    <p>A  explanation of Developer Advocacy.</p>
+                </li>
+                <li>
+                    <a href="htmltasks.html">
+                        <h3>The missing Web</h3>
+                    </a>
+                    </a>
+                    <p>The Web that enables developers to interact with an application.</p>
+                </li>
+                <li>
+                        <h3>Hey Google, set my desk to standing mode!</h3>
+                    </a>
+                    <p>What if you could use the Google Assistant to control your standing desk?</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <nav><a class="nav-link" href="index.html">Home</a>
+                 <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link" href="project.html">Projects</a>
+                   <span class="flex-1"></span>
+                   <a rel="me" class="nav-link" target="__blank" href="https://github.com/4RiddhiSharma" title="GitHub">GitHub</a>
+                <a rel="me" class="nav-link" target="__blank" href="https://medium.com/@riddhimos2001" title="Blog">Blog</a>
+                <a rel="me" class="nav-link" target="__blank" href="https://www.linkedin.com/in/riddhi-sharma-286459317/" title="LinkedIn">LinkedIn</a>
+            </nav>
+        </div>
+        <p class="credits"><small>Designed & built by Riddhi Sharma</small>
+     <img class="logo" src="assets\auto.png" alt="ridz-logo" width="185" height="42"></p>
+    </footer>
+</body>
+</html>
